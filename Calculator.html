@@ -1,0 +1,140 @@
+<!DOCTYPE html 5.0>
+
+<!-- CALCULATOR USING HTML , CSS , JAVASCRIPT -->
+
+<html lang="en">
+
+    <head>
+        
+        <title>Calculator ! </title>
+
+        <!--CSS starts here-->
+
+        <style>
+            
+            *{
+                margin : 0 ;
+                padding : 0 ; /* To remove all initial margins and paddings */
+                box-sizing : border-box ;
+                outline : none ; /* Removes outline */
+                font-family : Arial, sans-serif ; /* First perference is given to Arial if it don't work then sans-serif works */
+                background-color : #ecf0f3 ;
+            }
+
+            .container{
+                height : 100vh ; /* vh ==> viewport height */
+                display : flex ;
+                align-items : center ;
+                justify-content : center ;
+                background-color : #ecf0f3 ; /* Same background color is given to give transparence effect */
+            }
+
+            .calc{
+                box-shadow : 6px 6px 12px #fff,
+                            6px 6px 12px rgba(0,0,0,.16) ;
+                border-radius : 30px ;
+                padding : 15px ;
+                display : grid ;
+                grid-template-columns : repeat(4,65px) ; /* To get 4 columns */
+            }
+
+            input{
+                grid-column : span 4 ; /* 4 rows are joined together */
+                height : 70px ;
+                width : 260px ;
+                box-shadow : inset -6px -6px 12px #fff,
+                            inset 6px 6px 12px rgba(0,0,0,.16) ; /* Inset is used to apply the changes inside as by default the shadow property is outwards */
+                background-color : #ecf0f3 ;
+                border : none ; /* Remove border */
+                border-radius : 30px ;
+                color : rgb(26,25,25) ;
+                text-align : end ;
+                margin : 40px 0px 30px 0px ; /* 40px on top , 0px on right , 30px on buttom , 0px on left */
+                padding : 20px ;
+                font-size : 40px ;
+            }
+
+            button{
+                box-shadow : inset 6px 6px 12px #fff,
+                            6px 6px 12px rgba(0,0,0,.16) ;
+                background-color : #ecf0f3 ;
+                border : none ; /* Remove border for button */
+                border-radius : 50% ; /* To get circular shape buttons */
+                height : 50px ;
+                width : 50px ;
+                margin : 10px ;
+                font-weight : bold ; /* To get a clear display of the button lable */
+                font-size : 20px ;
+            }
+
+            .equal{
+                width : 120px ;
+                border-radius : 40px ;
+                box-shadow : inset 6px 6px 12px #fff,
+                            6px 6px 12px rgba(0,0,0,.16) ;
+                background-color : #ecf0f3 ; /* To get trasnparence effect */
+            }
+
+        </style>
+
+        <!--JavaScript code starts here-->
+        
+        <script>
+
+            /* Using a variable name for document.getElementById("inputtext").value causes some errors so it is not used */
+            
+            let calculate=(entered_value)=>{
+                document.getElementById("inputtext").value += entered_value ;
+            }
+
+            let result=()=>{
+                try{
+                    document.getElementById("inputtext").value = eval(document.getElementById("inputtext").value) ; /* eval() actually does the calculation part */
+                }
+                catch(err){ /* If the input contains any type of error then catch is used to avoid ubnormal behaviour of the code */
+                    alert("Syntax Error : Please Enter a valid input") ;
+                }
+                
+            }
+
+            function one_clear(){
+                document.getElementById("inputtext").value = document.getElementById("inputtext").value.slice(0,-1) ; /* Removes the last element */ 
+            }
+
+            function all_clear(){
+                document.getElementById("inputtext").value = " " ; /* Removes whatever currently present and replace it with a space */
+            }
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <div class = "container">
+            <div class = "calc">
+                <input type="text" id = "inputtext" placeholder = "0">
+                <button onclick = "one_clear()">C</button>
+                <button onclick = "all_clear()">AC</button>
+                <button onclick = "calculate('%')">%</button>
+                <button onclick = "calculate('/')">/</button>
+                <button onclick = "calculate(7)">7</button>
+                <button onclick = "calculate(8)">8</button>
+                <button onclick = "calculate(9)">9</button>
+                <button onclick = "calculate('*')">*</button>
+                <button onclick = "calculate(4)">4</button>
+                <button onclick = "calculate(5)">5</button>
+                <button onclick = "calculate(6)">6</button>
+                <button onclick = "calculate('-')">-</button>
+                <button onclick = "calculate(1)">1</button>
+                <button onclick = "calculate(2)">2</button>
+                <button onclick = "calculate(3)">3</button>
+                <button onclick = "calculate('+')">+</button>
+                <button onclick = "calculate('.')">.</button>
+                <button onclick = "calculate(0)">0</button>
+                <button class ="equal" onclick = "result()">=</button>
+            </div>
+        </div>
+
+    </body>
+</html>
