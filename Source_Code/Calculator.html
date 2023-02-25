@@ -7,12 +7,14 @@
     <head>
         
         <title>Calculator ! </title>
+        <link rel = "shortcut icon" type = "image/png" href = "../Icon/letter-r.png">
 
         <!--CSS starts here-->
 
         <style>
             
-            *{
+            *
+            {
                 margin : 0 ;
                 padding : 0 ; /* To remove all initial margins and paddings */
                 box-sizing : border-box ;
@@ -21,7 +23,8 @@
                 background-color : #ecf0f3 ;
             }
 
-            .container{
+            .container
+            {
                 height : 100vh ; /* vh ==> viewport height */
                 display : flex ;
                 align-items : center ;
@@ -29,7 +32,8 @@
                 background-color : #ecf0f3 ; /* Same background color is given to give transparence effect */
             }
 
-            .calc{
+            .calc
+            {
                 box-shadow : 6px 6px 12px #fff,
                             6px 6px 12px rgba(0,0,0,.16) ;
                 border-radius : 30px ;
@@ -38,7 +42,8 @@
                 grid-template-columns : repeat(4,65px) ; /* To get 4 columns */
             }
 
-            input{
+            input
+            {
                 grid-column : span 4 ; /* 4 rows are joined together */
                 height : 70px ;
                 width : 260px ;
@@ -54,7 +59,8 @@
                 font-size : 40px ;
             }
 
-            button{
+            button
+            {
                 box-shadow : inset 6px 6px 12px #fff,
                             6px 6px 12px rgba(0,0,0,.16) ;
                 background-color : #ecf0f3 ;
@@ -67,7 +73,8 @@
                 font-size : 20px ;
             }
 
-            .equal{
+            .equal
+            {
                 width : 120px ;
                 border-radius : 40px ;
                 box-shadow : inset 6px 6px 12px #fff,
@@ -80,6 +87,16 @@
         <!--JavaScript code starts here-->
         
         <script>
+
+            let docTitle = document.title ;
+            
+            window.addEventListener("blur", () => {
+                document.title = "Thanks For Visiting - Rishab" ;
+            }) ;
+
+            window.addEventListener("focus", () => {
+                document.title = docTitle ;
+            }) ;
 
             /* Using a variable name for document.getElementById("inputtext").value causes some errors so it is not used */
             
